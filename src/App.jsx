@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { obtenerClima } from "./api/weather";
 import CardWeather from "./cardWeather";
-import { Form, Formik, Field } from "Formik";
+import { Form, Formik, Field } from "formik";
 
 function App() {
   const [tiempo, setTiempo] = useState([]);
