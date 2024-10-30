@@ -4,7 +4,7 @@ export async function obtenerClima(busqueda) {
   console.log(busqueda);
   try {
     const response = await axios.post(
-      `https://backweather-91gz.onrender.com/`,
+      `https://backweather-production.up.railway.app/`,
       busqueda
     );
 
