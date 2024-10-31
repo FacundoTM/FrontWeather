@@ -3,8 +3,8 @@ import axios from "axios";
 export async function obtenerClima(busqueda) {
   try {
     const response = !busqueda
-      ? await axios.get(`https://backweather-production.up.railway.app/`)
-      : await axios.get(
+      ? await axios.post(`https://backweather-production.up.railway.app/`)
+      : await axios.post(
           `https://backweather-production.up.railway.app/`,
           busqueda
         );
