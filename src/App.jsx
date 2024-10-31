@@ -7,8 +7,18 @@ import { Form, Formik, Field } from "formik";
 function App() {
   const [tiempo, setTiempo] = useState([]);
   const [busqueda, setBusqueda] = useState({
-    busqueda: "San Miguel Buenos Aires",
+    busqueda: "",
   });
+
+  useEffect(() => {
+    async function fetchClimaIp() {
+      const res = await obtenerClima();
+      const bus = `${res.country} ${res.name} ${res.region}`;
+
+      setBusqueda({ busqueda: bus });
+    }
+    fetchClimaIp();
+  }, []);
 
   useEffect(() => {
     async function fetchClima() {

@@ -1,12 +1,13 @@
 import axios from "axios";
 
 export async function obtenerClima(busqueda) {
-  console.log(busqueda);
   try {
-    const response = await axios.post(
-      `https://backweather-production.up.railway.app/`,
-      busqueda
-    );
+    const response = !busqueda
+      ? await axios.get(`https://backweather-production.up.railway.app/`)
+      : await axios.get(
+          `https://backweather-production.up.railway.app/`,
+          busqueda
+        );
 
     const { temp_c, country, name, region, localtime, icon } = response.data;
     const res = { icon, temp_c, country, name, region, localtime };
@@ -16,3 +17,5 @@ export async function obtenerClima(busqueda) {
     return console.log("No se pudo actualizar, hubo un error.");
   }
 }
+
+// https://backweather-production.up.railway.app/
